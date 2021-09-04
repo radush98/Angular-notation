@@ -1,0 +1,115 @@
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+/*-------variables--------*/
+@primary-color:rgb(86, 86, 255);
+@light-color:rgb(255, 255, 255);
+@danger-color:rgb(224, 17, 17);
+@success-color:rgb(21, 209, 21);
+@dark-color:rgb(32, 30, 30);
+@blocked-color:rgb(163, 158, 158);
+@main-font:'Roboto', 'Sans-serif';
+
+*{
+    box-sizing:0;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: @main-font;
+    font-size: 1.5rem;  
+}
+
+.container{
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+header{
+    padding:0.5rem 1.5rem;
+    background-color:@primary-color;
+    color:@light-color;
+    font-size:1.2rem;
+}
+
+h2{
+    font-weight: normal;
+}
+
+.wrapper{
+    margin:0 1.5rem;
+    padding:0.5rem 0;
+}
+
+.center-element{
+    text-align: center;
+}
+
+.btn{
+    background: @primary-color;
+    color:@light-color;
+    padding:0.4rem 1.3rem;
+    border:none;
+    margin-right: 0.5rem;
+    font-size:1rem;
+    transition: opacity 1s ease-out;
+
+    &:disabled{
+        cursor:not-allowed;
+        color:@dark-color;
+        background:@blocked-color;
+    }
+
+    &:enabled:hover{
+        opacity:0.6;
+    }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+input[type='submit'],
+button {
+  font: inherit;
+}
+
+.form-control {
+    display: block;
+    color: #888;
+    margin-bottom: .8rem;
+  
+    &.invalid {
+      color: @danger-color;
+      input {
+        border-color: @danger-color;
+      }
+    }
+  
+    .validation {
+      color: @danger-color;
+    }
+}
+
+.buttons{
+    margin:1rem 0;
+}
+
+
+
+
+
+

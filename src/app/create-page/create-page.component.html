@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <h2 class="center-element">{{title}}</h2>
+        <div class="container">
+            <div class="form-control" [ngClass]="{invalid:form.get('title')!.touched && form.get('title')!.invalid}">
+                <label for="title">Title</label>
+                <input type="text" id="title" formControlName="title">
+                <div class="validation">
+                    <small *ngIf="form.get('title')!.touched && form.get('title')!.invalid">
+                        Empty field!
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="">Text</label>
+                <quill-editor formControlName="text"></quill-editor>
+            </div>
+
+            <div class="buttons">
+                <button 
+                    class="btn" 
+                    type="submit"
+                    [disabled] = "form.invalid">     
+                    Save
+                </button>
+                <button class="btn" type="button" [routerLink]="['/main']" (click)="back()">
+                    Back
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>

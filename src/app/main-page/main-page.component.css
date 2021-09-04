@@ -1,0 +1,23 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cards .card {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 1rem 0.5rem;
+}
+.cards .card-content {
+  overflow: hidden;
+  height: 15rem;
+}
+.cards .card-content-title {
+  font-size: 2rem;
+}
+.cards .card-date {
+  font-size: 1rem;
+}
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+}

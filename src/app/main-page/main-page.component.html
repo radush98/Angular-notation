@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <h2 class="center-element">All notations</h2>
+    <button class="btn" [routerLink]="['/create']">New notation</button>
+    <div class="cards" *ngIf="notations">
+        <div class="card" *ngFor="let notation of notations">
+            <div class="card-content">
+                <span class="card-title">{{notation.title}}</span>
+                <quill-view-html [content]="notation.text"></quill-view-html>         
+            </div>
+            <span class="card-date">{{notation.date | date:"medium"}} </span>
+            <div class="card-buttons buttons">
+                <button [routerLink]="['/post', notation.id]" class="btn">Edit</button>
+                <button class="btn" (click)="delete(notation.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
