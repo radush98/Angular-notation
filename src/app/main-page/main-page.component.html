@@ -1,17 +1,29 @@
 <div class="wrapper">
     <h2 class="center-element">All notations</h2>
     <button class="btn" [routerLink]="['/create']">New notation</button>
-    <div class="cards" *ngIf="notations">
-        <div class="card" *ngFor="let notation of notations">
-            <div class="card-content">
-                <span class="card-title">{{notation.title}}</span>
-                <quill-view-html [content]="notation.text"></quill-view-html>         
-            </div>
-            <span class="card-date">{{notation.date | date:"medium"}} </span>
-            <div class="card-buttons buttons">
-                <button [routerLink]="['/post', notation.id]" class="btn">Edit</button>
-                <button class="btn" (click)="delete(notation.id)">Delete</button>
+    <div class="haveElems" *ngIf = "notations != []; else empty">
+        <div class="cards" *ngIf="notations.length > 0; else loading">
+            <div class="card" *ngFor="let notation of notations">
+                <div class="card-content">
+                    <span class="card-title">{{notation.title}}</span>
+                    <quill-view-html [content]="notation.text"></quill-view-html>
+                </div>
+                <span class="card-date">{{notation.date | date:"medium"}} </span>
+                <div class="card-buttons buttons">
+                    <button [routerLink]="['/post', notation.id]" class="btn">Edit</button>
+                    <button class="btn" (click)="delete(notation.id)">Delete</button>
+                </div>
             </div>
         </div>
+        <ng-template #loading>
+            <div>
+                <p class="center-element">Loading...</p>
+            </div>
+        </ng-template>
     </div>
+    <ng-template #empty>
+        <div>
+            <p class="center-element">There are no notations yet</p>
+        </div>
+    </ng-template>
 </div>

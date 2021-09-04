@@ -1,10 +1,10 @@
-import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Notation } from '../shared/interfaces';
-import { NotationService } from '../shared/notation.service';
+import { ModalResultService } from '../shared/services/modal-result.service';
+import { NotationService } from '../shared/services/notation.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -19,7 +19,9 @@ export class EditPageComponent implements OnInit {
 
   constructor(
     private nservice: NotationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mservice: ModalResultService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {    
@@ -56,7 +58,13 @@ export class EditPageComponent implements OnInit {
   }
 
   back() {
-    this.form.reset();
+    this.mservice.dialogResult()
+    .subscribe(result => {
+        if (result === "true") 
+          this.router.navigate(['main'])
+    }
+    )
+    // this.form.reset();
   }
 
 }

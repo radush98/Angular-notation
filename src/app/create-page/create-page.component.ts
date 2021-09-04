@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NotationService } from '../shared/notation.service';
+import { NotationService } from '../shared/services/notation.service';
 import { Notation } from '../shared/interfaces';
 
 @Component({

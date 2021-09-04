@@ -21,10 +21,11 @@
                 <button 
                     class="btn" 
                     type="submit"
-                    [disabled] = "form.invalid">     
+                    [disabled] = "form.invalid"
+                    >     
                     Save
                 </button>
-                <button class="btn" type="button" [routerLink]="['/main']" (click)="back()">
+                <button class="btn" type="button" (click)="back()">
                     Back
                 </button>
                 <button class="btn" type="button" (click)="delete()">

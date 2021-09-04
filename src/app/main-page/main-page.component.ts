@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 import { Notation } from '../shared/interfaces';
-import { NotationService } from '../shared/notation.service';
+import { NotationService } from '../shared/services/notation.service';
 
 @Component({
   selector: 'app-main-page',
@@ -18,7 +18,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.nSub = this.nservice.getAllNotations().subscribe((notations) => {
-      this.notations = notations;
+        this.notations = notations;
     })
   }
 
